@@ -1,0 +1,13 @@
+- name: Test hello OpenShift App
+  hosts: localhost
+
+  tasks:
+  - name: "Reach demo app url {{ demo_app_url }}"
+    uri:
+      url: "{{ demo_app_url }}"
+      return_content: yes
+    register: output
+
+  - name: "Debug demo app output"
+    debug:
+      var: output
